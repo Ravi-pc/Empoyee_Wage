@@ -13,7 +13,23 @@
 import random
 
 
-def daily_wage(present):
+def calculate_wage(hours):
+    """
+
+            Description: calculate_wage function to calculate the wage of an employee
+                            working part-time or full-time.
+
+            Parameter: Working hours
+
+            Return:
+        """
+
+    wage_per_hour = 20
+    total_wage = wage_per_hour * hours
+    print('Total wage of the Employee is ', total_wage)
+
+
+def emp_day():
     """
             Description: daily_wage function that is used to calculate the wage of an employee
                          part-time and full-time.
@@ -23,22 +39,21 @@ def daily_wage(present):
             Return: 0 or 1
 
          """
-    wage_per_hour = 20
-    full_time = present
-    part_time = 2
-    emp = random.randint(0,100) % 3
-    if emp == full_time:
-        working_hour = 8
-        print('Employee is working full time. ')
+    atd = check_attendance()
+    if atd == 1:
+        print('Employee is present ')
+        day = check_attendance()
+        if day == 1:
+            print('Employee is working full-time ')
+            calculate_wage(8)
+        else:
+            print('Employee is working part-time ')
+            calculate_wage(4)
     else:
-        working_hour = 4
-        print('Employee is working part time. ')
-
-    total_wage = wage_per_hour * working_hour
-    print('Employee Daily Wage is ', total_wage)
+        print('Employee is absent ')
 
 
-def attendance():
+def check_attendance():
     """
 
         Description: Attendance function checks the attendance of employee is present or
@@ -49,15 +64,11 @@ def attendance():
         Return: 0 or 1
 
      """
-    full_time = 1
-    check = (random.randint(0, 100)) % 2
-    if check == full_time:
-        print("Employee is present")
-        daily_wage(check)
-    else:
-        print("Employee is absent")
+
+    check = (random.randint(0, 1))
+    return check
 
 
 if __name__ == "__main__":
     print("Welcome to the Employee Wage Computation Program on master branch ")
-    attendance()
+    emp_day()
