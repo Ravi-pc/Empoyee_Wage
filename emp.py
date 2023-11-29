@@ -14,11 +14,28 @@ import random
 
 
 def daily_wage(present):
+    """
+            Description: daily_wage function that is used to calculate the wage of an employee
+                         part-time and full-time.
+
+            Parameter: None
+
+            Return: 0 or 1
+
+         """
     wage_per_hour = 20
-    if present == 1:
-        full_day_hour = 8
-        total_wage = wage_per_hour * full_day_hour
-        print('Employee Daily Wage is ', total_wage)
+    full_time = present
+    part_time = 2
+    emp = random.randint(0,100) % 3
+    if emp == full_time:
+        working_hour = 8
+        print('Employee is working full time. ')
+    else:
+        working_hour = 4
+        print('Employee is working part time. ')
+
+    total_wage = wage_per_hour * working_hour
+    print('Employee Daily Wage is ', total_wage)
 
 
 def attendance():
@@ -34,7 +51,6 @@ def attendance():
      """
     full_time = 1
     check = (random.randint(0, 100)) % 2
-    print(check)
     if check == full_time:
         print("Employee is present")
         daily_wage(check)
