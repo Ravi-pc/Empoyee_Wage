@@ -25,8 +25,7 @@ def attendance():
 
      """
     full_time = 1
-    check = (random.randint(0, 100)) % 2
-    print(check)
+    check = (random.randint(0, 2))
     if check == full_time:
         print("Employee is present")
     else:
