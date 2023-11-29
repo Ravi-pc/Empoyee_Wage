@@ -3,9 +3,9 @@
 
 @Date: 2023-28-11 15:20:30
 
-@Last Modified by:
+@Last Modified by: Ravi Singh
 
-@Last Modified time: 2023-28-11 2:20:30
+@Last Modified time: 2023-29-11 14:52:30
 
 @Title : Employee Wage Calculator
 """
@@ -13,12 +13,11 @@
 import random
 
 
-def daily_wage(present):
+def daily_wage():
     wage_per_hour = 20
-    if present == 1:
-        full_day_hour = 8
-        total_wage = wage_per_hour * full_day_hour
-        print('Employee Daily Wage is ', total_wage)
+    full_day_hour = 8
+    total_wage = wage_per_hour * full_day_hour
+    print('Employee Daily Wage is ', total_wage)
 
 
 def attendance():
@@ -32,12 +31,11 @@ def attendance():
         Return: 0 or 1
 
      """
-    full_time = 1
-    check = (random.randint(0, 100)) % 2
+    check = (random.randint(0, 1))
     print(check)
-    if check == full_time:
+    if check == 1:
         print("Employee is present")
-        daily_wage(check)
+        daily_wage()
     else:
         print("Employee is absent")
 
