@@ -13,6 +13,14 @@
 import random
 
 
+def daily_wage(present):
+    wage_per_hour = 20
+    if present == 1:
+        full_day_hour = 8
+        total_wage = wage_per_hour * full_day_hour
+        print('Employee Daily Wage is ', total_wage)
+
+
 def attendance():
     """
 
@@ -29,10 +37,11 @@ def attendance():
     print(check)
     if check == full_time:
         print("Employee is present")
+        daily_wage(check)
     else:
         print("Employee is absent")
 
 
 if __name__ == "__main__":
-    print("Welcome to the Employee Wage Computation Problem ")
+    print("Welcome to the Employee Wage Computation Program on master branch ")
     attendance()
