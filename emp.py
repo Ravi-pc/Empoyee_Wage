@@ -1,90 +1,49 @@
 """
 @Author: Ravi Singh
 
-@Date: 2023-28-11 15:20:30
+@Date: 2023-30-11 15:20:30
 
 @Last Modified by:
 
-@Last Modified time: 2023-28-11 2:20:30
+@Last Modified time: 2023-30-11 12:20:30
 
 @Title : Employee Wage Calculator
 """
 
 import random
 
-wage_per_hour = 20
-day_per_month = 20
 
-
-def monthly_wage(hour_per_day):
-    """
-
-              Description: monthly_wage function to calculate the monthly wage of
-               an employee.
-
-              Parameter: Working hours
-
-              Return:
-          """
-    month_wage = day_per_month * hour_per_day * day_per_month
-    print('Wage per month of an employee is ', month_wage)
-
-
-def calculate_wage(hours):
-    """
-
-            Description: calculate_wage function to calculate the wage of an employee
-                            working part-time or full-time.
-
-            Parameter: Working hours
-
-            Return:
-        """
-    total_wage = wage_per_hour * hours
-    print('Total wage of the Employee is ', total_wage)
-
-
-def emp_day():
+def daily_wage():
     """
             Description: daily_wage function that is used to calculate the wage of an employee
                          part-time and full-time.
 
             Parameter: None
 
-            Return: 0 or 1
+            Return:
 
          """
-    atd = check_attendance()
-    if atd == 1:
-        print('Employee is present ')
-        day = check_attendance()
-        if day == 1:
-            print('Employee is working full-time ')
-            calculate_wage(8)
-            monthly_wage(8)
-        else:
-            print('Employee is working part-time ')
-            calculate_wage(4)
-    else:
-        print('Employee is absent ')
 
+    wage_per_hour = 20
+    working_hour = 0
+    total_hour = 0
+    for i in range(20):
+        emp = random.randint(0, 2)
+        match emp:
+            case 0:
+                print('Employee is absent on Day ', i+1)
+            case 1:
+                print('Employee is  on Day ', i+1)
+                working_hour = 8
+            case 2:
+                print('Employee is working part-time on Day ', i+1)
+                working_hour = 4
+        total_hour += working_hour
 
-def check_attendance():
-    """
-
-        Description: Attendance function checks the attendance of employee is present or
-                        not using random function.
-
-        Parameter: None
-
-        Return: 0 or 1
-
-     """
-
-    check = (random.randint(0, 1))
-    return check
+    month_wage = total_hour * wage_per_hour
+    print('Total wage for the month of an employee is ', month_wage)
 
 
 if __name__ == "__main__":
     print("Welcome to the Employee Wage Computation Program on master branch ")
-    emp_day()
+    daily_wage()
