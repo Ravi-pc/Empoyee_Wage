@@ -27,22 +27,22 @@ def daily_wage():
     wage_per_hour = 20
     working_hour = 0
     total_hour = 0
-    for day in range(20):
+    day = 0
+    while day <= 20 and total_hour <= 100:
         emp = random.randint(0, 2)
         match emp:
             case 0:
-                print('Employee is absent on Day ', day+1)
+                print('Employee is absent on Day ', day)
             case 1:
-                print('Employee is  on Day ', day+1)
+                print('Employee is present on Day ', day)
                 working_hour = 8
             case 2:
-                print('Employee is working part-time on Day ', day+1)
+                print('Employee is working part-time on Day ', day)
                 working_hour = 4
         total_hour += working_hour
-        if day >= 20 or total_hour >= 100:
-            month_wage = total_hour * wage_per_hour
-            print('Total wage for the month of an employee is ', month_wage)
-            break
+        day += 1
+    print('Total working hours of an employee is', total_hour)
+    print('The monthly wage of an employee is', total_hour*wage_per_hour)
 
 
 if __name__ == "__main__":
